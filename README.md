@@ -1,6 +1,6 @@
 # Local-MultiPlay-API-and-web-games
 
-## Overview
+# Overview
 
 Make API for game manager 
 - authentication
@@ -17,3 +17,16 @@ Make API for game manager
 <p align="center">
   <img src="./img/pacmangame.png?raw=true">
 </p>
+
+# Design
+
+## UI
+
+- Login
+- LOGOUT
+- CRUD USER
+- CRUD GAMES
+- NOTE: YOU CREATE USERS AND GAMES UNDER THE CURRENT ACCOUNT
+
+## API 
+- ALL ACTIONS TO SUPPORT THE UI.
