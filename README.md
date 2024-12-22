@@ -20,16 +20,18 @@ Make API for game manager
 
 # Design
 
-## UI
+## GAME MANAGER UI
 
-- Login
+- LOGIN
 - LOGOUT
 - CRUD USER
 - CRUD GAMES
 - NOTE: YOU CREATE USERS AND GAMES UNDER THE CURRENT ACCOUNT
 
-## API 
+## GAME MANAGER API
 - ALL ACTIONS TO SUPPORT THE UI.
+
+## GAME ENGINE API
 
 <p align="center">
   <img src="./img/api_gamedesign.png?raw=true">
