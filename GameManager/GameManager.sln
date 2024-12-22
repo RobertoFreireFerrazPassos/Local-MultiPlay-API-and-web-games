@@ -9,7 +9,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{963FD1CF-CDA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ENGINEAPI", "ENGINEAPI", "{2C32C455-441C-46FD-843F-46616DC1940C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineAPI", "EngineAPI\EngineAPI.csproj", "{61E0A44C-0163-4549-A1A6-CE0FBEFFF12C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngineAPI", "EngineAPI\EngineAPI.csproj", "{61E0A44C-0163-4549-A1A6-CE0FBEFFF12C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Games", "Games", "{01964CDA-439C-47F9-BE29-D771C8EF2832}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Snake", "Snake", "{6A9B2687-A04E-468E-8183-0119A397A1AC}"
+	ProjectSection(SolutionItems) = preProject
+		main.html = main.html
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +34,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{61E0A44C-0163-4549-A1A6-CE0FBEFFF12C} = {2C32C455-441C-46FD-843F-46616DC1940C}
+		{6A9B2687-A04E-468E-8183-0119A397A1AC} = {01964CDA-439C-47F9-BE29-D771C8EF2832}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {57B6DAAB-1ECE-4F04-ACE9-4CEF054F4D4F}

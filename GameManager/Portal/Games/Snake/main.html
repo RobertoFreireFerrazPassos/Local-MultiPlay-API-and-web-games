@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+</head>
+<body>
+    <!-- The game logic is handled by the external script -->
+    <script>
+        // Create the game board
+        document.body.style.margin = '0';
+        document.body.style.overflow = 'hidden';
+        const gameDiv = document.createElement('div');
+        const width = 20; // Number of cells horizontally
+        const height = 20; // Number of cells vertically
+        const cellSize = 20; // Size of each cell in pixels
+        const board = Array.from({ length: height }, () => Array(width).fill(0));
+
+        gameDiv.style.position = 'relative';
+        gameDiv.style.width = `${width * cellSize}px`;
+        gameDiv.style.height = `${height * cellSize}px`;
+        gameDiv.style.border = '1px solid black';
+        document.body.appendChild(gameDiv);
+
+        // Add directional buttons
+        const buttonDiv = document.createElement('div');
+        buttonDiv.style.display = 'flex';
+        buttonDiv.style.justifyContent = 'center';
+        buttonDiv.style.marginTop = '20px';
+        ['Up', 'Left', 'Down', 'Right'].forEach((direction) => {
+            const button = document.createElement('button');
+            button.textContent = direction;
+            button.style.margin = '5px';
+            button.onclick = () => handleInput(direction);
+            buttonDiv.appendChild(button);
+        });
+        document.body.appendChild(buttonDiv);
+
+        // Snake and food state
+        let snake = [{ x: 10, y: 10 }]; // Initial position of the snake
+        let direction = { x: 0, y: -1 }; // Moving up initially
+        let food = { x: Math.floor(Math.random() * width), y: Math.floor(Math.random() * height) };
+
+        // Game loop function
+        function gameLoop() {
+            // Move the snake
+            const head = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
+
+            // Wrap around the edges
+            head.x = (head.x + width) % width;
+            head.y = (head.y + height) % height;
+
+            // Check collision with itself
+            if (snake.some((segment) => segment.x === head.x && segment.y === head.y)) {
+                alert('Game Over!');
+                snake = [{ x: 10, y: 10 }];
+                direction = { x: 0, y: -1 };
+                food = { x: Math.floor(Math.random() * width), y: Math.floor(Math.random() * height) };
+                return;
+            }
+
+            // Add new head to the snake
+            snake.unshift(head);
+
+            // Check if the snake eats food
+            if (head.x === food.x && head.y === food.y) {
+                food = { x: Math.floor(Math.random() * width), y: Math.floor(Math.random() * height) };
+            } else {
+                snake.pop(); // Remove tail if not eating
+            }
+
+            draw();
+        }
+
+        // Handle input
+        function handleInput(directionInput) {
+            const directions = {
+                Up: { x: 0, y: -1 },
+                Down: { x: 0, y: 1 },
+                Left: { x: -1, y: 0 },
+                Right: { x: 1, y: 0 },
+            };
+            const newDirection = directions[directionInput];
+
+            // Prevent the snake from reversing
+            if (snake.length > 1 &&
+                (newDirection.x === -direction.x && newDirection.y === -direction.y)) {
+                return;
+            }
+
+            direction = newDirection;
+        }
+
+        // Draw the game state
+        function draw() {
+            gameDiv.innerHTML = ''; // Clear the game board
+
+            // Draw the snake
+            snake.forEach((segment) => {
+                const segmentDiv = document.createElement('div');
+                segmentDiv.style.position = 'absolute';
+                segmentDiv.style.width = `${cellSize}px`;
+                segmentDiv.style.height = `${cellSize}px`;
+                segmentDiv.style.backgroundColor = 'green';
+                segmentDiv.style.left = `${segment.x * cellSize}px`;
+                segmentDiv.style.top = `${segment.y * cellSize}px`;
+                gameDiv.appendChild(segmentDiv);
+            });
+
+            // Draw the food
+            const foodDiv = document.createElement('div');
+            foodDiv.style.position = 'absolute';
+            foodDiv.style.width = `${cellSize}px`;
+            foodDiv.style.height = `${cellSize}px`;
+            foodDiv.style.backgroundColor = 'red';
+            foodDiv.style.left = `${food.x * cellSize}px`;
+            foodDiv.style.top = `${food.y * cellSize}px`;
+            gameDiv.appendChild(foodDiv);
+        }
+
+        // Start the game loop
+        setInterval(gameLoop, 200);
+    </script>
+</body>
+</html>
