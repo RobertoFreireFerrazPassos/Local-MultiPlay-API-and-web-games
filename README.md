@@ -36,3 +36,7 @@ Make API for game manager
 <p align="center">
   <img src="./img/api_gamedesign.png?raw=true">
 </p>
+
+# Deploy in Raspberry PI
+
+https://medium.com/medialesson/rp-03-creating-a-net-service-to-run-automatically-on-a-raspberry-pi-a7554c11e664
