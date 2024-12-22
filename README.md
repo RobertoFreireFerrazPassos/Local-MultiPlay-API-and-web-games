@@ -30,3 +30,7 @@ Make API for game manager
 
 ## API 
 - ALL ACTIONS TO SUPPORT THE UI.
+
+<p align="center">
+  <img src="./img/api_gamedesign.png?raw=true">
+</p>
